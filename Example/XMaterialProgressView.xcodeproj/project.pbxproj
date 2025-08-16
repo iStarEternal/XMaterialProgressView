@@ -28,8 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		030997006B1DF46DE95DBDB4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		0E1B9787532EAF92DF23B556 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		030997006B1DF46DE95DBDB4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		0E1B9787532EAF92DF23B556 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		2D23488D1DE7EC06DCAD55F7 /* Pods-XMaterialProgressView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMaterialProgressView_Example.release.xcconfig"; path = "Target Support Files/Pods-XMaterialProgressView_Example/Pods-XMaterialProgressView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		2F4CA14D8F1B3024AE95675D /* Pods_XMaterialProgressView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XMaterialProgressView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33AEC943E7DCF63B74756825 /* Pods-XMaterialProgressView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMaterialProgressView_Tests.release.xcconfig"; path = "Target Support Files/Pods-XMaterialProgressView_Tests/Pods-XMaterialProgressView_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -44,7 +44,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		83C400D96F05C2F9CBF137A4 /* Pods-XMaterialProgressView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMaterialProgressView_Example.debug.xcconfig"; path = "Target Support Files/Pods-XMaterialProgressView_Example/Pods-XMaterialProgressView_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		B4C73248A7282E4A480B7EC4 /* XMaterialProgressView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = XMaterialProgressView.podspec; path = ../XMaterialProgressView.podspec; sourceTree = "<group>"; };
+		B4C73248A7282E4A480B7EC4 /* XMaterialProgressView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XMaterialProgressView.podspec; path = ../XMaterialProgressView.podspec; sourceTree = "<group>"; };
 		B59775F9E3B346F1053A51CA /* Pods-XMaterialProgressView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMaterialProgressView_Tests.debug.xcconfig"; path = "Target Support Files/Pods-XMaterialProgressView_Tests/Pods-XMaterialProgressView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		FF824B54D7E4E6E0FCB6589E /* Pods_XMaterialProgressView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XMaterialProgressView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -77,7 +77,6 @@
 				B59775F9E3B346F1053A51CA /* Pods-XMaterialProgressView_Tests.debug.xcconfig */,
 				33AEC943E7DCF63B74756825 /* Pods-XMaterialProgressView_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -227,6 +226,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -484,7 +484,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -499,7 +499,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
