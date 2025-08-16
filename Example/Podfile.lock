@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  XMaterialProgressView: 36de91ac2abf8c75f4289ace9c986cda17dc568e
+  XMaterialProgressView: 663c9b547b2780dbd05c5e9ae95d829df7de76fa
 
 PODFILE CHECKSUM: 1fac33716a459274afa84d650d34245961517b02
 

@@ -18,14 +18,14 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+XMaterialProgressView
                        DESC
 
   s.homepage         = 'https://github.com/hyh/XMaterialProgressView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'hyh' => '576681253@qq.com' }
-  s.source           = { :git => 'https://github.com/hyh/XMaterialProgressView.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/iStarEternal/XMaterialProgressView.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'

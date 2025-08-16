@@ -8,7 +8,7 @@ See [Example](Example/XMaterialProgressView/ViewController.swift)
 ## Installation
 
 ```ruby
-pod 'XMaterialProgressView'
+pod 'XMaterialProgressView', :git => 'https://github.com/iStarEternal/XMaterialProgressView.git'
 ```
 
 ## Figure
