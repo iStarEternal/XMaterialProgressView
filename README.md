@@ -1,24 +1,25 @@
 # XMaterialProgressView
 
-[![CI Status](https://img.shields.io/travis/hyh/XMaterialProgressView.svg?style=flat)](https://travis-ci.org/hyh/XMaterialProgressView)
-[![Version](https://img.shields.io/cocoapods/v/XMaterialProgressView.svg?style=flat)](https://cocoapods.org/pods/XMaterialProgressView)
-[![License](https://img.shields.io/cocoapods/l/XMaterialProgressView.svg?style=flat)](https://cocoapods.org/pods/XMaterialProgressView)
-[![Platform](https://img.shields.io/cocoapods/p/XMaterialProgressView.svg?style=flat)](https://cocoapods.org/pods/XMaterialProgressView)
 
-## Example
+## How to use
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
+See [Example](Example/XMaterialProgressView/ViewController.swift)
 
 ## Installation
-
-XMaterialProgressView is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'XMaterialProgressView'
 ```
+
+## Figure
+
+### XMaterialCircleProgressView
+
+![figure](figure_circle_progress.png)
+
+### XMaterialLinearProgressView
+
+![figure](figure_linear_progress.png)
 
 ## Author
 
