@@ -1,5 +1,6 @@
 # XMaterialProgressView
 
+![preview](preview.gif)
 
 ## How to use
 
