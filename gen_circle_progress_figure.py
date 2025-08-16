@@ -45,8 +45,8 @@ for t in time_ms / 1000:  # 秒
     # strokeStart 从 beginTime 开始，持续 durationStart
     if t < beginTime:
         progress_start = 0
-    elif t < durationStart:
-        norm_t = (t - beginTime) / (durationStart - beginTime)
+    elif t < beginTime + durationStart:
+        norm_t = (t - beginTime) / durationStart
         progress_start = cubic_bezier_y_for_x(norm_t, p1x, p1y, p2x, p2y)
     else:
         progress_start = 1
@@ -60,7 +60,7 @@ ax.fill_between(time_ms, lead, trail, where=(np.array(lead) > np.array(trail)),
                 color="green", alpha=0.2)
 
 ax.axvline(beginTime*1000, color='gray', linestyle=':', alpha=0.5)
-ax.text(beginTime*1000, 1.05, f'Start beginTime={beginTime}s', ha='center', color='gray')
+ax.text(beginTime*1000, 1.05, f'strokeStart beginTime={beginTime}s', ha='center', color='gray')
 ax.set(xlabel="Time (ms)", ylabel="Progress", ylim=(0,1.2), xlim=(0, totalDuration*1000))
 ax.legend()
 ax.grid(True, linestyle='--', alpha=0.6)
