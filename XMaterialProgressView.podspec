@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XMaterialProgressView'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of XMaterialProgressView.'
+  s.version          = '1.0.0'
+  s.summary          = 'Swift material progress view based on flutter.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,10 +18,10 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-XMaterialProgressView
+XMaterialCircleProgressView, XMaterialLinearProgressView
                        DESC
 
-  s.homepage         = 'https://github.com/hyh/XMaterialProgressView'
+  s.homepage         = 'https://github.com/iStarEternal/XMaterialProgressView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'hyh' => '576681253@qq.com' }
@@ -29,6 +29,7 @@ XMaterialProgressView
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
+  s.swift_version = '5.0'
 
   s.source_files = 'XMaterialProgressView/Classes/**/*'
   
