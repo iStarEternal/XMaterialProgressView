@@ -1,0 +1,16 @@
+PODS:
+  - XMaterialProgressView (0.1.0)
+
+DEPENDENCIES:
+  - XMaterialProgressView (from `../`)
+
+EXTERNAL SOURCES:
+  XMaterialProgressView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  XMaterialProgressView: e1ba50e09e99df97b3f2a555ed7128851d24f8ce
+
+PODFILE CHECKSUM: 7b76f0776e5a2f2158a142eae05369b4d82b8b35
+
+COCOAPODS: 1.16.2

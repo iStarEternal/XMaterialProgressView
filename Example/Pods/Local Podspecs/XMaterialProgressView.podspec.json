@@ -1,0 +1,22 @@
+{
+  "name": "XMaterialProgressView",
+  "version": "0.1.0",
+  "summary": "A short description of XMaterialProgressView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/hyh/XMaterialProgressView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "hyh": "576681253@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/hyh/XMaterialProgressView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "XMaterialProgressView/Classes/**/*"
+}

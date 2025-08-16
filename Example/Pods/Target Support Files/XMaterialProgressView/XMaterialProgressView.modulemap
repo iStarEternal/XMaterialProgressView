@@ -1,0 +1,6 @@
+framework module XMaterialProgressView {
+  umbrella header "XMaterialProgressView-umbrella.h"
+
+  export *
+  module * { export * }
+}
