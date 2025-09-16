@@ -11,12 +11,7 @@ _kIndeterminateLinearDuration = _kIndeterminateLinearDurationSecond * 1000  # �
 time_ms = np.linspace(0, _kIndeterminateLinearDuration, 1000)
 time_normalized = time_ms / _kIndeterminateLinearDuration  # 归一化到[0,1]
 
-# 定义贝塞尔曲线函数
-def cubic_bezier_approx(t, a, b, c, d):
-    u = 1 - t
-    return 3 * u**2 * t * a + 3 * u * t**2 * c + t**3  # 忽略p0=0和p3=1的简化计算
-
-def cubic_bezier_exact(t, curve):
+def cubic_bezier(t, curve):
     # 二分法求解精确贝塞尔值（简化版）
     low, high = 0.0, 1.0
     for _ in range(20):  # 迭代20次足够精确
@@ -41,17 +36,11 @@ def calculate_plain(t, begin, end, _=None):  # 添加冗余参数保持接口一
     if t >= end: return 1
     return (t - begin) / (end - begin)
 
-def calculate_approx(t, begin, end, curve):
+def calculate_bazier(t, begin, end, curve):
     if t <= begin: return 0
     if t >= end: return 1
     progress = (t - begin) / (end - begin)
-    return cubic_bezier_approx(progress, curve.a, curve.b, curve.c, curve.d)
-
-def calculate_exact(t, begin, end, curve):
-    if t <= begin: return 0
-    if t >= end: return 1
-    progress = (t - begin) / (end - begin)
-    return cubic_bezier_exact(progress, curve)
+    return cubic_bezier(progress, curve)
 
 # 计算所有曲线数据（优化版）
 def generate_data(calculate_func, curves=None):
@@ -75,11 +64,7 @@ def generate_data(calculate_func, curves=None):
 
 # 生成三种类型的数据
 plain_data = generate_data(calculate_plain)
-approx_data = generate_data(calculate_approx, [
-    Cubic(0.2, 0.0, 0.8, 1.0), Cubic(0.4, 0.0, 1.0, 1.0),
-    Cubic(0.0, 0.0, 0.65, 1.0), Cubic(0.10, 0.0, 0.45, 1.0)
-])
-exact_data = generate_data(calculate_exact, [
+bazier_data = generate_data(calculate_bazier, [
     Cubic(0.2, 0.0, 0.8, 1.0), Cubic(0.4, 0.0, 1.0, 1.0),
     Cubic(0.0, 0.0, 0.65, 1.0), Cubic(0.10, 0.0, 0.45, 1.0)
 ])
@@ -108,14 +93,13 @@ def plot_graph(ax, data, title):
     ax.grid(True)
 
 # 创建图表
-fig, axes = plt.subplots(3, 1, figsize=(10, 12), tight_layout=True)
+fig, axes = plt.subplots(2, 1, figsize=(10, 10), tight_layout=True)
 titles = [
     'XMaterialLinearProgressAnimationPlain (Linear)',
-    'XMaterialLinearProgressAnimationBazierApprox',
-    'XMaterialLinearProgressAnimationBazierExact'
+    'XMaterialLinearProgressAnimationBazier'
 ]
 
-for ax, data, title in zip(axes, [plain_data, approx_data, exact_data], titles):
+for ax, data, title in zip(axes, [plain_data, bazier_data], titles):
     plot_graph(ax, data, title)
 
 plt.show()

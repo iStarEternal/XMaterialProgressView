@@ -11,8 +11,7 @@ public class XMaterialLinearProgressView: UIView {
     
     public enum Style {
         case plain
-        case bazierApprox
-        case bazierExact
+        case bazier
     }
     
     // MARK: - Layers
@@ -69,7 +68,7 @@ public class XMaterialLinearProgressView: UIView {
         resetAnimation(oldValue: old, newValue: value, animated: animated)
     }
     
-    public var style: Style = .bazierExact {
+    public var style: Style = .bazier {
         didSet {
             resetAnimation(oldValue: nil, newValue: nil, animated: false)
         }
@@ -186,9 +185,7 @@ public class XMaterialLinearProgressView: UIView {
         switch style {
         case .plain:
             XMaterialLinearProgressAnimationPlain.addIndeterminateBarAnimation(layer1: layer1, layer2: layer2)
-        case .bazierApprox:
-            XMaterialLinearProgressAnimationBazierApprox.addIndeterminateBarAnimation(layer1: layer1, layer2: layer2)
-        case .bazierExact:
+        case .bazier:
             XMaterialLinearProgressAnimationBazierExact.addIndeterminateBarAnimation(layer1: layer1, layer2: layer2)
         }
     }
@@ -239,110 +236,6 @@ private class XMaterialLinearProgressAnimationPlain {
         let tail2 = makeKeyframe(
             [line2TailStart, line2TailEnd],
             [0.0, 1.0],
-            keyPath: "strokeStart"
-        )
-        
-        let group1 = CAAnimationGroup()
-        group1.animations = [head1, tail1]
-        group1.duration = _kIndeternunateLinearDurationSecond
-        group1.repeatCount = .infinity
-        group1.fillMode = .forwards
-        group1.isRemovedOnCompletion = false
-        layer1.add(group1, forKey: "indeterminate1")
-        let group2 = CAAnimationGroup()
-        group2.animations = [head2, tail2]
-        group2.duration = _kIndeternunateLinearDurationSecond
-        group2.repeatCount = .infinity
-        group2.fillMode = .forwards
-        group2.isRemovedOnCompletion = false
-        layer2.add(group2, forKey: "indeterminate2")
-    }
-}
-
-private class XMaterialLinearProgressAnimationBazierApprox {
-    
-    struct Cubic {
-        let a: Double
-        let b: Double
-        let c: Double
-        let d: Double
-        
-        init(_ a: Double, _ b: Double, _ c: Double, _ d: Double) {
-            self.a = a
-            self.b = b
-            self.c = c
-            self.d = d
-        }
-    }
-    
-    static func makeAnimation(_ begin: Double, _ end: Double, curve: Cubic, keyPath: String) -> CAKeyframeAnimation {
-        let anim = CAKeyframeAnimation(keyPath: keyPath)
-        var values: [CGFloat] = []
-        var keyTimes: [NSNumber] = []
-        
-        let frames = 60
-        
-        for i in 0...frames {
-            let t = Double(i) / Double(frames)
-            let transformed = transformInternal(t, begin, end, curve)
-            values.append(CGFloat(transformed))
-            keyTimes.append(NSNumber(value: t))
-        }
-        
-        anim.values = values
-        anim.keyTimes = keyTimes
-        anim.duration = _kIndeternunateLinearDurationSecond
-        anim.repeatCount = .infinity
-        anim.fillMode = .forwards
-        anim.isRemovedOnCompletion = false
-        
-        return anim
-    }
-    
-    static func transformInternal(_ t: Double, _ begin: Double, _ end: Double, _ curve: Cubic) -> Double {
-        if t <= begin { return 0 }
-        if t >= end { return 1 }
-        let progress = (t - begin) / (end - begin)
-        return cubicBezier(progress, curve)
-    }
-    
-    // 线性近似
-    static func cubicBezier(_ t: Double, _ c: Cubic) -> Double {
-        let u = 1 - t
-        let tt = t * t
-        let uu = u * u
-        let uuu = uu * u
-        let ttt = tt * t
-        let p0 = 0.0
-        let p1 = Double(c.a)
-        let p2 = Double(c.c)
-        let p3 = 1.0
-        return uuu * p0 + 3 * uu * t * p1 + 3 * u * tt * p2 + ttt * p3
-    }
-    
-    static func addIndeterminateBarAnimation(layer1: CAShapeLayer, layer2: CAShapeLayer) {
-        let head1 = makeAnimation(
-            0.0,
-            750.0 / _kIndeterminateLinearDuration,
-            curve: Cubic(0.2, 0.0, 0.8, 1.0),
-            keyPath: "strokeEnd"
-        )
-        let tail1 = makeAnimation(
-            333.0 / _kIndeterminateLinearDuration,
-            (333.0 + 750.0) / _kIndeterminateLinearDuration,
-            curve: Cubic(0.4, 0.0, 1.0, 1.0),
-            keyPath: "strokeStart"
-        )
-        let head2 = makeAnimation(
-            1000.0 / _kIndeterminateLinearDuration,
-            (1000.0 + 567.0) / _kIndeterminateLinearDuration,
-            curve: Cubic(0.0, 0.0, 0.65, 1.0),
-            keyPath: "strokeEnd"
-        )
-        let tail2 = makeAnimation(
-            1267.0 / _kIndeterminateLinearDuration,
-            (1267.0 + 533.0) / _kIndeterminateLinearDuration,
-            curve: Cubic(0.10, 0.0, 0.45, 1.0),
             keyPath: "strokeStart"
         )
         

@@ -24,13 +24,7 @@ class ViewController: UIViewController {
     
     private lazy var lineProgressView_v2: XMaterialLinearProgressView = {
         let view = XMaterialLinearProgressView()
-        view.style = .bazierApprox
-        return view
-    }()
-    
-    private lazy var lineProgressView_v3: XMaterialLinearProgressView = {
-        let view = XMaterialLinearProgressView()
-        view.style = .bazierExact
+        view.style = .bazier
         return view
     }()
     
@@ -47,7 +41,6 @@ class ViewController: UIViewController {
         view.addSubview(circleProgressView)
         view.addSubview(lineProgressView_v1)
         view.addSubview(lineProgressView_v2)
-        view.addSubview(lineProgressView_v3)
         
         let top: CGFloat = 64 + 16
         let screenWidth = UIScreen.main.bounds.width
@@ -56,7 +49,6 @@ class ViewController: UIViewController {
         
         lineProgressView_v1.frame = CGRect(x: 16, y: top + 100 + 20 + 00, width: screenWidth - 32, height: 44)
         lineProgressView_v2.frame = CGRect(x: 16, y: top + 100 + 20 + 44, width: screenWidth - 32, height: 44)
-        lineProgressView_v3.frame = CGRect(x: 16, y: top + 100 + 20 + 88, width: screenWidth - 32, height: 44)
         
         setValue(nil, animated: true)
     }
@@ -122,7 +114,6 @@ class ViewController: UIViewController {
         circleProgressView.setValue(value, animated: animated)
         lineProgressView_v1.setValue(value, animated: animated)
         lineProgressView_v2.setValue(value, animated: animated)
-        lineProgressView_v3.setValue(value, animated: animated)
     }
     
 }
